@@ -64,17 +64,17 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
-    // case FormFieldType.TEXTAREA:
-    //   return (
-    //     <FormControl>
-    //       <Textarea
-    //         placeholder={props.placeholder}
-    //         {...field}
-    //         className="shad-textArea"
-    //         disabled={props.disabled}
-    //       />
-    //     </FormControl>
-    //   );
+    case FormFieldType.TEXTAREA:
+      return (
+        <FormControl>
+          <Textarea
+            placeholder={props.placeholder}
+            {...field}
+            className="shad-textArea"
+            disabled={props.disabled}
+          />
+        </FormControl>
+      );
     case FormFieldType.PHONE_INPUT:
       return (
         <FormControl>
