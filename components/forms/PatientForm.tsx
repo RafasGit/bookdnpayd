@@ -12,7 +12,7 @@ import { UserFormValidation } from "@/lib/validation";
 
 import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
-import SubmitButton from "../SubmitButtoon";
+import SubmitButton from "../SubmitButton";
 
 
 export const PatientForm = () => {

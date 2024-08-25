@@ -104,47 +104,47 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           </div>
         </FormControl>
       );
-    // case FormFieldType.DATE_PICKER:
-    //   return (
-    //     <div className="flex rounded-md border border-dark-500 bg-dark-400">
-    //       <Image
-    //         src="/assets/icons/calendar.svg"
-    //         height={24}
-    //         width={24}
-    //         alt="user"
-    //         className="ml-2"
-    //       />
-    //       <FormControl>
-    //         <ReactDatePicker
-    //           showTimeSelect={props.showTimeSelect ?? false}
-    //           selected={field.value}
-    //           onChange={(date: Date) => field.onChange(date)}
-    //           timeInputLabel="Time:"
-    //           dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
-    //           wrapperClassName="date-picker"
-    //         />
-    //       </FormControl>
-    //     </div>
-    //   );
-  //   case FormFieldType.SELECT:
-  //     return (
-  //       <FormControl>
-  //         <Select onValueChange={field.onChange} defaultValue={field.value}>
-  //           <FormControl>
-  //             <SelectTrigger className="shad-select-trigger">
-  //               <SelectValue placeholder={props.placeholder} />
-  //             </SelectTrigger>
-  //           </FormControl>
-  //           <SelectContent className="shad-select-content">
-  //             {props.children}
-  //           </SelectContent>
-  //         </Select>
-  //       </FormControl>
-  //     );
-  //   case FormFieldType.SKELETON:
-  //     return props.renderSkeleton ? props.renderSkeleton(field) : null;
-  //   default:
-  //     return null;
+    case FormFieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+          <Image
+            src="/assets/icons/calendar.svg"
+            height={24}
+            width={24}
+            alt="user"
+            className="ml-2"
+          />
+          <FormControl>
+            <ReactDatePicker
+              showTimeSelect={props.showTimeSelect ?? false}
+              selected={field.value}
+              onChange={(date: Date) => field.onChange(date)}
+              timeInputLabel="Time:"
+              dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
+              wrapperClassName="date-picker"
+            />
+          </FormControl>
+        </div>
+      );
+    case FormFieldType.SELECT:
+      return (
+        <FormControl>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl>
+              <SelectTrigger className="shad-select-trigger">
+                <SelectValue placeholder={props.placeholder} />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent className="shad-select-content">
+              {props.children}
+            </SelectContent>
+          </Select>
+        </FormControl>
+      );
+    case FormFieldType.SKELETON:
+      return props.renderSkeleton ? props.renderSkeleton(field) : null;
+    default:
+      return null;
    }
 };
 
