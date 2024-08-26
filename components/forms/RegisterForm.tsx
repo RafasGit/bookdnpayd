@@ -155,7 +155,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Date of birth"
             />
 
-<CustomFormField
+            <CustomFormField
               fieldType={FormFieldType.SKELETON}
               control={form.control}
               name="gender"
