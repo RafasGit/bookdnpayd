@@ -19,9 +19,9 @@ import { Appointment } from "@/types/appwrite.types";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import CustomFormField, { FormFieldType } from "../CustomFormField";
-import SubmitButton from "../SubmitButton";
-import { Form } from "../ui/form";
+import CustomFormField, { FormFieldType } from "./CustomFormField";
+import SubmitButton from "./SubmitButton";
+import { Form } from "./ui/form";
 
 export const AppointmentForm = ({
     userId,
