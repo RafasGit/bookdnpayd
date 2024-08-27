@@ -64,8 +64,8 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
-    case FormFieldType.TEXTAREA:
-      return (
+      case FormFieldType.TEXTAREA:
+        return (
         <FormControl>
           <Textarea
             placeholder={props.placeholder}
@@ -122,6 +122,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               timeInputLabel="Time:"
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker"
+              
             />
           </FormControl>
         </div>
