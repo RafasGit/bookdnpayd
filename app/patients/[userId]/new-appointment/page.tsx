@@ -4,7 +4,12 @@ import { AppointmentForm } from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
 
 const Appointment = async ({ params: { userId } }: SearchParamProps) => {
+ 
   const patient = await getPatient(userId);
+
+ console.log(userId)
+  console.log(patient)
+  console.log('hi')
 
   return (
     <div className="flex h-screen max-h-screen">

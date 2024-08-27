@@ -38,6 +38,7 @@ export const AppointmentForm = ({
   }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    console.log( `hi ${patientId} `)
   
     const AppointmentFormValidation = getAppointmentSchema(type);
   

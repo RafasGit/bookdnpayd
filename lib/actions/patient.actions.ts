@@ -14,7 +14,7 @@ import {
     
   } from "../appwrite.config";
   import { parseStringify } from "../utils";
-  import { users } from "../appwrite.config";
+  import { users, } from "../appwrite.config";
 
 
   export const createUser = async (user: CreateUserParams) => {
@@ -56,6 +56,41 @@ export const getUser = async (userId: string) => {
       );
     }
   };
+  //66cc975c0011c129780c  66cc8ea7001cee116f48  66cc8dc10012e97c462f
+    // GET PATIENT
+export const getPatient = async (userId: string) => {
+  try {
+    const patients = await databases.listDocuments(
+      DATABASE_ID!,
+      PATIENT_COLLECTION_ID!,
+      [Query.equal("userId", [userId])]
+     
+    );
+    console.log(`Patient data:`, PATIENT_COLLECTION_ID)
+    if (!patients.documents || patients.documents.length === 0) {
+      throw new Error(`No patient found for userId: ${userId}`);
+    }
+
+    const patientData = patients.documents[0];
+    console.log(`Patient data:`, patientData);
+
+    // Parse the patient data
+    const parsedPatient = parseStringify(patientData);
+
+    // Check if parsing was successful
+    if (!parsedPatient) {
+      throw new Error('Failed to parse patient data');
+    }
+
+    return parsedPatient;
+  } 
+    catch (error) {
+    console.error(
+      "An error occurred while retrieving the patient details:",
+      error
+    );
+  }
+};
   
  // REGISTER PATIENT
 export const registerPatient = async ({
@@ -81,15 +116,17 @@ export const registerPatient = async ({
         DATABASE_ID!,
         PATIENT_COLLECTION_ID!,
         ID.unique(),
+        
         {
           identificationDocumentId: file?.$id ? file.$id : null,
-          identificationDocumentUrl: file?.$id
-            ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
-            : null,
+          identificationDocumentUrl:  `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view??project=${PROJECT_ID}`
+            ,
           ...patient,
         }
       );
-  
+      console.log({newPatient})
+
+
       return parseStringify(newPatient);
     } catch (error) {
       console.error("An error occurred while creating a new patient:", error);
@@ -97,20 +134,3 @@ export const registerPatient = async ({
   };
    
 
-  // GET PATIENT
-export const getPatient = async (userId: string) => {
-    try {
-      const patients = await databases.listDocuments(
-        DATABASE_ID!,
-        PATIENT_COLLECTION_ID!,
-        [Query.equal("userId", [userId])]
-      );
-  
-      return parseStringify(patients.documents[0]);
-    } catch (error) {
-      console.error(
-        "An error occurred while retrieving the patient details:",
-        error
-      );
-    }
-  };
