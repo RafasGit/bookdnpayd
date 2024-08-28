@@ -11,9 +11,9 @@ import { SelectItem } from "@/components/ui/select";
 import { Doctors } from "@/constants";
 import {
   createAppointment,
-
+  updateAppointment
 } from "@/lib/actions/appointment.actions";
-//updateAppointment
+
 import { getAppointmentSchema } from "@/lib/validation";
 import { Appointment } from "@/types/appwrite.types";
 
@@ -105,12 +105,12 @@ export const AppointmentForm = ({
             type,
           };
   
-      //    const updatedAppointment = await updateAppointment(appointmentToUpdate);
+         const updatedAppointment = await updateAppointment(appointmentToUpdate);
   
-          // if (updatedAppointment) {
-          //   setOpen && setOpen(false);
-          //   form.reset();
-          // }
+          if (updatedAppointment) {
+            setOpen && setOpen(false);
+            form.reset();
+          }
         }
       } catch (error) {
         console.log(error);
