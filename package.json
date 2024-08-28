@@ -17,6 +17,7 @@
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@sentry/nextjs": "^8.27.0",
     "@tanstack/react-table": "^8.20.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -32,6 +33,7 @@
     "react-phone-number-input": "^3.4.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "twilio": "^5.2.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

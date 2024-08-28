@@ -48,10 +48,14 @@ declare type SearchParamProps = {
     note: string | undefined;
   };
   
-  declare type UpdateAppointmentParams = {
-    appointmentId: string;
-    userId: string;
-    timeZone: string;
-    appointment: Appointment;
-    type: string;
+ declare type UpdateAppointmentParams = {
+  userId: string;
+  appointmentId: string;
+  appointment: {
+    primaryPhysician: string;
+    schedule: Date;
+    status: Status;
+    cancellationReason?: string;
   };
+  type: "create" | "schedule" | "cancel";
+};
