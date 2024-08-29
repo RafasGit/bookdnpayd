@@ -1,3 +1,9 @@
+
+A customer management system designed to streamline client registration, appointment scheduling, and records management for service providers. Payment gateway, app security and metrics with Sentry.
+
+Resources
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
